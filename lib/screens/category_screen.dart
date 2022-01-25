@@ -4,13 +4,15 @@ import 'package:recipies/models/category.dart';
 import 'package:recipies/widgets/category_item.dart';
 
 class CategoryScreen extends StatelessWidget {
-  List<Category> categoris = dummyCategories;
+  final List<Category> categoris = dummyCategories;
+
+  CategoryScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Categoryscreen"),
+        title: const Text("CategoryScreen"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -24,6 +26,7 @@ class CategoryScreen extends StatelessWidget {
           itemCount: categoris.length,
           itemBuilder: (context, index) {
             return CategoryItem(
+              id: categoris[index].id,
               title: categoris[index].title,
               color: categoris[index].color,
             );
