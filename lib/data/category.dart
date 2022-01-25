@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipies/models/category.dart';
+import 'package:recipies/models/meal.dart';
 
 const dummyCategories = [
   Category(
@@ -54,7 +55,7 @@ const dummyCategories = [
   ),
 ];
 
-const DUMMY_MEALS = const [
+const dummyMeals = [
   Meal(
     id: 'm1',
     categories: [
