@@ -25,6 +25,7 @@ class CategoryItem extends StatelessWidget {
           },
         ));
       },
+      borderRadius: BorderRadius.circular(15),
       splashColor: color,
       child: Container(
         alignment: Alignment.center,
