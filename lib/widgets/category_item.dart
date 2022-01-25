@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipies/screens/category_details_screen.dart';
 
 class CategoryItem extends StatelessWidget {
   final String id;
@@ -14,7 +15,16 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) {
+            return CategoryDetailsScreen(
+              catTitle: title,
+              catColor: color,
+            );
+          },
+        ));
+      },
       splashColor: color,
       child: Container(
         alignment: Alignment.center,
