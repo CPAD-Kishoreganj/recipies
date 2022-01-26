@@ -16,14 +16,14 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) {
-            return CategoryDetailsScreen(
-              catTitle: title,
-              catColor: color,
-            );
-          },
-        ));
+        var categoryDetails = {
+          "id": id,
+          'title': title,
+        };
+        Navigator.of(context).pushNamed(
+          CategoryDetailsScreen.routeName,
+          arguments: categoryDetails,
+        );
       },
       borderRadius: BorderRadius.circular(15),
       splashColor: color,
