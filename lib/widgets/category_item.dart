@@ -16,13 +16,12 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        var categoryDetails = {
-          "id": id,
-          'title': title,
-        };
         Navigator.of(context).pushNamed(
           CategoryDetailsScreen.routeName,
-          arguments: categoryDetails,
+          arguments: {
+            "id": id,
+            'title': title,
+          },
         );
       },
       borderRadius: BorderRadius.circular(15),
