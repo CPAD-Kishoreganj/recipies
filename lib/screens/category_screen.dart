@@ -4,6 +4,7 @@ import 'package:recipies/models/category.dart';
 import 'package:recipies/widgets/category_item.dart';
 
 class CategoryScreen extends StatefulWidget {
+  static const routeName = 'category-screen';
   CategoryScreen({Key? key}) : super(key: key);
 
   @override
