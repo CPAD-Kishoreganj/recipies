@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipies/screens/category_screen.dart';
 import 'package:recipies/screens/favorite_screen.dart';
+import 'package:recipies/widgets/my_drawer.dart';
 
 class TabScreen extends StatefulWidget {
   const TabScreen({Key? key}) : super(key: key);
@@ -11,19 +12,28 @@ class TabScreen extends StatefulWidget {
 
 class _TabScreenState extends State<TabScreen> {
   int _initialIndex = 0;
-  List _Screens = [
-    CategoryScreen(),
-    FavoriteScreen(),
+  final List<Map<String, dynamic>> _screens = [
+    {
+      'screen': CategoryScreen(),
+      'title': 'Recipe',
+    },
+    {
+      'screen': FavoriteScreen(),
+      'title': 'Favorite',
+    },
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Recipe'),
-      // ),
-      body: _Screens[_initialIndex],
+      appBar: AppBar(
+        title: Text(_screens[_initialIndex]['title']),
+      ),
+      drawer: MyDrawer(),
+      body: _screens[_initialIndex]['screen'],
       bottomNavigationBar: BottomNavigationBar(
+        showUnselectedLabels: false,
         selectedItemColor: Colors.white,
+        type: BottomNavigationBarType.shifting,
         backgroundColor: Colors.blue,
         currentIndex: _initialIndex,
         onTap: (value) {
@@ -38,6 +48,7 @@ class _TabScreenState extends State<TabScreen> {
             label: "Category",
           ),
           BottomNavigationBarItem(
+            backgroundColor: Colors.orange,
             icon: Icon(Icons.favorite),
             label: "Favorites",
           ),
