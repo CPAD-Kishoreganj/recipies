@@ -3,10 +3,20 @@ import 'package:recipies/data/category.dart';
 import 'package:recipies/models/category.dart';
 import 'package:recipies/widgets/category_item.dart';
 
-class CategoryScreen extends StatelessWidget {
+class CategoryScreen extends StatefulWidget {
+  CategoryScreen({Key? key}) : super(key: key);
+
+  @override
+  State<CategoryScreen> createState() => _CategoryScreenState();
+}
+
+class _CategoryScreenState extends State<CategoryScreen> {
   final List<Category> categoris = dummyCategories;
 
-  CategoryScreen({Key? key}) : super(key: key);
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
