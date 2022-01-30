@@ -44,7 +44,7 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           buildListTile('Recipies', Icons.restaurant, () {
-            Navigator.of(context).pushNamed(CategoryScreen.routeName);
+            Navigator.of(context).pushNamed('/');
           }),
           const SizedBox(height: 12),
           buildListTile('Filter', Icons.filter, () {
