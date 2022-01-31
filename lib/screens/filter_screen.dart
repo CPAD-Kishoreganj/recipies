@@ -1,12 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:recipies/screens/category_screen.dart';
 import 'package:recipies/widgets/my_drawer.dart';
 
 class FilterScreen extends StatefulWidget {
   static const routeName = 'filter-screen';
   Function setFilters;
-  FilterScreen({Key? key, required this.setFilters}) : super(key: key);
+
+  Map<String, bool> currentFilters;
+  FilterScreen(this.currentFilters, this.setFilters);
 
   @override
   State<FilterScreen> createState() => _FilterScreenState();
@@ -17,6 +20,15 @@ class _FilterScreenState extends State<FilterScreen> {
   bool _isVegan = false;
   bool _isVegetarian = false;
   bool _isLactoseFree = false;
+
+  @override
+  void initState() {
+    _isGlutenFree = widget.currentFilters['gluten']!;
+    _isVegan = widget.currentFilters['vegan']!;
+    _isVegetarian = widget.currentFilters['vegetarian']!;
+    _isLactoseFree = widget.currentFilters['lactose']!;
+    super.initState();
+  }
 
   Widget buildSwitchListTile(
     String title,
@@ -41,7 +53,13 @@ class _FilterScreenState extends State<FilterScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              widget.setFilters;
+              var filtedMeals = {
+                'gluten': _isGlutenFree,
+                'vegan': _isVegan,
+                'lactose': _isLactoseFree,
+                'vegetarian': _isVegetarian,
+              };
+              widget.setFilters(filtedMeals);
             },
             icon: Icon(Icons.save),
           ),
@@ -100,6 +118,13 @@ class _FilterScreenState extends State<FilterScreen> {
               ],
             ),
           ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed('/');
+            },
+            child: Text("Show Filtered Meals"),
+          ),
+          SizedBox(height: 224),
         ],
       ),
     );
