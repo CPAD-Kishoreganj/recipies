@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:recipies/screens/category_screen.dart';
 import 'package:recipies/widgets/my_drawer.dart';
 
 class FilterScreen extends StatefulWidget {
